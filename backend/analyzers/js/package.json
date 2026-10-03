@@ -1,0 +1,8 @@
+{
+  "name": "codetwin-js-analyzer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TypeScript Compiler API based analyzer for JS/TS sources",
+  "main": "analyzer.js",
+  "dependencies": { "typescript": "^5.6.0" }
+}

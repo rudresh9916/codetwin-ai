@@ -1,0 +1,21 @@
+# Render Blueprint: one Docker web service running the API and serving the built web app.
+# Deploy: Render dashboard → New → Blueprint → pick this repository.
+services:
+  - type: web
+    name: codetwin-ai
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free            # free instances sleep after ~15 min idle; first visit then takes about a minute
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: CODETWIN_PUBLIC          # public-demo safeguards: no local-folder import, read-only settings, no deletes
+        value: "1"
+      - key: CODETWIN_LLM_PROVIDER    # AI off; set to anthropic and add ANTHROPIC_API_KEY in the dashboard to enable it
+        value: none
+      - key: CODETWIN_MAX_UPLOAD_MB
+        value: "50"
+      - key: CODETWIN_MAX_REPO_MB
+        value: "250"
+      - key: CODETWIN_PASSWORD        # optional: set a value in the dashboard to require a password for the whole site
+        sync: false

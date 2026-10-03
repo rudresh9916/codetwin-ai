@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres:16
+    environment: { POSTGRES_DB: shopverse, POSTGRES_USER: shopverse, POSTGRES_PASSWORD: shopverse123 }
+  api:
+    build: ./backend
+    ports: ["8080:8080"]
+    depends_on: [db]
+  web:
+    build: ./frontend
+    ports: ["5173:5173"]

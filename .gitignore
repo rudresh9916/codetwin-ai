@@ -1,0 +1,12 @@
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.venv/
+backend/data/
+.env
+.DS_Store
+.pytest_cache/
+
+# ShopVerse demo history is generated on import (see samples/build_sample_history.py)
+samples/shopverse/.git/
